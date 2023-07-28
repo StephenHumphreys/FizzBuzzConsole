@@ -12,12 +12,10 @@ namespace FizzBuzz
         {
             string fizzBuzzReturnValue = "";
 
-            Number fizz = new(3, "Fizz");
-            Number buzz = new(5, "Buzz");
-            Number overEngineered = new(99, "THIS IS TOO MUCH");
-            Number birthday = new(13, "Sammy's Birthday");
+            FizzClass fizz = new("Fizz");
+            BuzzClass buzz = new("Buzz");
 
-            Number[] numbers = new Number[] { fizz, buzz,overEngineered, birthday };
+            Number[] numbers = new Number[] { fizz, buzz};
             foreach (int numberToCheck in input)
             {
                 bool hasMetCritera = numbers.Any(n => n.MeetsCritera(numberToCheck));

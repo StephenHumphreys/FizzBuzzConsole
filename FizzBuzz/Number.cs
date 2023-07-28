@@ -1,23 +1,15 @@
 ﻿namespace FizzBuzz
 {
-    public class Number
+    public abstract class Number
     {
-        private int mod;
-        private string message;
+        public string message;
 
-        public Number(int mod, string message) {
-            this.mod = mod;
+        public Number(string message) {
             this.message = message;
         }
 
-        public bool MeetsCritera(int number)
-        {
-            if (number % mod == 0)
-            {
-                return true;
-            }
-            return false;
-        }
+
+        public abstract bool MeetsCritera(int number);
 
         public string MessageForNumber(int number)
         {
