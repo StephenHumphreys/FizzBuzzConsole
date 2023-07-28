@@ -9,15 +9,17 @@ namespace Unit_Tests
         public void CheckFizz()
         {
             FizzBuzz.FizzBuzz fizzBuzz = new();
-            string res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(3, 1).ToArray());
-            Assert.IsTrue(string.Compare(res,"FIZZ\n",true)==0);
+            List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(3, 1).ToArray());
+            Assert.AreEqual(1,res.Count());
+            Assert.IsTrue(string.Compare(res[0],"FIZZ",true)==0);
         }
 
         [TestMethod]
         public void CheckBuzz() 
         {
             FizzBuzz.FizzBuzz fizzBuzz = new();
-            string res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(5, 1).ToArray());
+            List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(5, 1).ToArray());
+            Assert.AreEqual(1, res.Count()); 
             Assert.IsTrue(string.Compare(res, "BUZZ\n", true) == 0);
 
         }
@@ -26,8 +28,9 @@ namespace Unit_Tests
         public void CheckFizzBuzz() 
         {
             FizzBuzz.FizzBuzz fizzBuzz = new();
-            string res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(15, 1).ToArray());
-            Assert.IsTrue(string.Compare(res, "FIZZBUZZ\n", true) == 0);
+            List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(15, 1).ToArray());
+            Assert.AreEqual(1, res.Count());
+            Assert.IsTrue(string.Compare(res[1], "FIZZBUZZ", true) == 0);
         }
 
 
@@ -35,8 +38,9 @@ namespace Unit_Tests
         public void CheckNormal() 
         {
             FizzBuzz.FizzBuzz fizzBuzz = new();
-            string res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(23, 1).ToArray());
-            Assert.IsTrue(string.Compare(res, "23\n", true) == 0);
+            List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(23, 1).ToArray());
+            Assert.AreEqual(1, res.Count());
+            Assert.IsTrue(string.Compare(res[1], "23", true) == 0);
         }
 
         [TestMethod]
@@ -44,7 +48,7 @@ namespace Unit_Tests
         {
             FizzBuzz.FizzBuzz fizzBuzz = new();
             string res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(1, 100).ToArray());
-            Assert.IsTrue(res.Split("\n").Length == 101);
+            Assert.AreEqual(100, res.Count());
         }
     }
 }
