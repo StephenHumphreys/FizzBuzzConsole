@@ -8,9 +8,9 @@ namespace FizzBuzz
 {
     public class FizzBuzz
     {
-        public string PlayFizzBuzz(int[] input)
+        public List<string> PlayFizzBuzz(int[] input)
         {
-            string fizzBuzzReturnValue = "";
+            List<string> fizzBuzzReturnValue = new List<string>();
 
             FizzClass fizz = new("Fizz");
             BuzzClass buzz = new("Buzz");
@@ -22,17 +22,19 @@ namespace FizzBuzz
 
                 if (!hasMetCritera)
                 {
-                    fizzBuzzReturnValue += numberToCheck.ToString();
+                    fizzBuzzReturnValue.Add(numberToCheck.ToString());
                 }
                 else
                 {
+                    string outputToAdd = "";
+
                     foreach (Number number in numbers)
                     {
-                        fizzBuzzReturnValue += number.MessageForNumber(numberToCheck);
+                        outputToAdd += number.MessageForNumber(numberToCheck); 
                     }
-                }
 
-                fizzBuzzReturnValue += "\n";
+                    fizzBuzzReturnValue.Add(outputToAdd);
+                }
             }
 
             return fizzBuzzReturnValue;

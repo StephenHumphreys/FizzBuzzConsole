@@ -20,7 +20,7 @@ namespace Unit_Tests
             FizzBuzz.FizzBuzz fizzBuzz = new();
             List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(5, 1).ToArray());
             Assert.AreEqual(1, res.Count()); 
-            Assert.IsTrue(string.Compare(res, "BUZZ\n", true) == 0);
+            Assert.IsTrue(string.Compare(res[0], "BUZZ", true) == 0);
 
         }
 
@@ -30,7 +30,7 @@ namespace Unit_Tests
             FizzBuzz.FizzBuzz fizzBuzz = new();
             List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(15, 1).ToArray());
             Assert.AreEqual(1, res.Count());
-            Assert.IsTrue(string.Compare(res[1], "FIZZBUZZ", true) == 0);
+            Assert.IsTrue(string.Compare(res[0], "FIZZBUZZ", true) == 0);
         }
 
 
@@ -40,14 +40,14 @@ namespace Unit_Tests
             FizzBuzz.FizzBuzz fizzBuzz = new();
             List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(23, 1).ToArray());
             Assert.AreEqual(1, res.Count());
-            Assert.IsTrue(string.Compare(res[1], "23", true) == 0);
+            Assert.IsTrue(string.Compare(res[0], "23", true) == 0);
         }
 
         [TestMethod]
         public void CheckNumberOfResults() 
         {
             FizzBuzz.FizzBuzz fizzBuzz = new();
-            string res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(1, 100).ToArray());
+            List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(1, 100).ToArray());
             Assert.AreEqual(100, res.Count());
         }
     }

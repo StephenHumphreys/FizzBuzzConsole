@@ -12,5 +12,10 @@ MethodInfo? method = fizzBuzzType.GetMethod("PlayFizzBuzz");
 if (method != null)
 {
     FizzBuzz.FizzBuzz fizzBuzz = new();
-    Console.WriteLine(method.Invoke(fizzBuzz, new[] { Enumerable.Range(1, 100).ToArray() }));
+    object? o = method.Invoke(fizzBuzz, new[] { Enumerable.Range(1, 100).ToArray() });
+    if (o != null)
+    {
+        List<string> result = (List<string>)o;
+        Console.WriteLine(string.Join("\n", result));
+    }
 }
