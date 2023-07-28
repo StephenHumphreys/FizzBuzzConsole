@@ -50,5 +50,19 @@ namespace Unit_Tests
             List<string> res = fizzBuzz.PlayFizzBuzz(Enumerable.Range(1, 100).ToArray());
             Assert.AreEqual(100, res.Count());
         }
+
+        [TestMethod]
+        public void CheckPrizeGiving()
+        {
+            DateTime mondayMorning = new DateTime(2023, 7, 31, 9, 12, 23);
+            FizzBuzz.MysteryPrize prize = new FizzBuzz.MysteryPrize(mondayMorning);
+            Assert.IsTrue(prize.MeetsCritera(97));
+            Assert.IsFalse(prize.MeetsCritera(96));
+
+            DateTime tuesdayMorning = new DateTime(2023, 8, 1, 9, 12, 23);
+            FizzBuzz.MysteryPrize noPrize = new FizzBuzz.MysteryPrize(tuesdayMorning);
+            Assert.IsFalse(noPrize.MeetsCritera(97));
+            Assert.IsFalse(noPrize.MeetsCritera(162));
+        }
     }
 }

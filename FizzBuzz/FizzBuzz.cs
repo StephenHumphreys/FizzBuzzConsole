@@ -14,8 +14,9 @@ namespace FizzBuzz
 
             FizzClass fizz = new("Fizz");
             BuzzClass buzz = new("Buzz");
+            MysteryPrize prize = new MysteryPrize(DateTime.Now);
 
-            Number[] numbers = new Number[] { fizz, buzz};
+            Number[] numbers = new Number[] { fizz, buzz,prize};
             foreach (int numberToCheck in input)
             {
                 bool hasMetCritera = numbers.Any(n => n.MeetsCritera(numberToCheck));
